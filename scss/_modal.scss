@@ -1,0 +1,130 @@
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  background-color: rgb(0,0,0);
+  /* Fallback color */
+  background-color: rgba(0,0,0,0.7);
+  /* Black w/ opacity */
+}
+
+.modal-box {
+  background-color: #fefefe;
+  margin: 100px auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  position: relative;
+  border: 1px solid lighten($brand-color-mutual, 20%);
+  border-radius: $borderradius;
+  max-width: 280px;
+  /* Could be more or less, depending on screen size */
+  @include tablet {
+    max-width: 350px;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: lighten($brand-color-mutual, 10%);
+
+  img {
+    width: 175px;
+    border-radius: 100%;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: rotate(-3deg) scale(1.05);
+    }
+  }
+
+  h2 {
+    color: $brand-color-primary;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+
+  hr {
+    border-top: 1px lighten($brand-color-mutual, 20%) solid;
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .m-address,
+  .m-city,
+  .m-name {
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  a {
+    color: $brand-color-mutual;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-color-primary;
+    }
+  }
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: -3px;
+}
+
+.m-next,
+.m-previous {
+  color: #aaa;
+  font-size: 30px;
+  @include tablet {
+    font-size: 50px;
+  }
+  position: absolute;
+  top: 170px;
+
+  &:hover {
+    color: #666;
+  }
+  cursor: pointer;
+}
+
+.m-previous {
+  left: 5px;
+  @include tablet {
+    left: -50px;
+  }
+}
+
+.m-next {
+  right: 5px;
+  @include tablet {
+    right: -50px;
+  }
+}
+
+.close:focus,
+.close:hover {
+  color: $brand-color-primary;
+  text-decoration: none;
+  cursor: pointer;
+}

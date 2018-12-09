@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,800");
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Black w/ opacity */
+}
+
+.modal-box {
+  background-color: #fefefe;
+  margin: 100px auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  position: relative;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  max-width: 280px;
+  /* Could be more or less, depending on screen size */
+}
+@media (min-width: 697px) {
+  .modal-box {
+    max-width: 350px;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9e9e9e;
+}
+.modal-content img {
+  width: 175px;
+  border-radius: 100%;
+  transition: transform 0.3s;
+}
+.modal-content img:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+.modal-content h2 {
+  color: #053f38;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.modal-content p {
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+.modal-content hr {
+  border-top: 1px #b7b7b7 solid;
+  width: 90%;
+  margin-top: 10px;
+}
+.modal-content .m-address,
+.modal-content .m-city,
+.modal-content .m-name {
+  text-transform: capitalize;
+  text-align: center;
+}
+.modal-content a {
+  color: #848484;
+  text-decoration: none;
+}
+.modal-content a:hover {
+  color: #053f38;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: -3px;
+}
+
+.m-next,
+.m-previous {
+  color: #aaa;
+  font-size: 30px;
+  position: absolute;
+  top: 170px;
+  cursor: pointer;
+}
+@media (min-width: 697px) {
+  .m-next,
+.m-previous {
+    font-size: 50px;
+  }
+}
+.m-next:hover,
+.m-previous:hover {
+  color: #666;
+}
+
+.m-previous {
+  left: 5px;
+}
+@media (min-width: 697px) {
+  .m-previous {
+    left: -50px;
+  }
+}
+
+.m-next {
+  right: 5px;
+}
+@media (min-width: 697px) {
+  .m-next {
+    right: -50px;
+  }
+}
+
+.close:focus,
+.close:hover {
+  color: #053f38;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+main input {
+  display: block;
+  text-align: center;
+  width: 280px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #848484;
+  font-size: 1em;
+}
+@media (min-width: 697px) {
+  main input {
+    width: 400px;
+  }
+}
+@media (min-width: 1024px) {
+  main input {
+    width: 600px;
+  }
+}
+main input::placeholder {
+  color: #d1d1d1;
+}
+
+h1 {
+  text-align: center;
+  background-color: #053f38;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container .card {
+  border: #d1d1d1 1px solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px 10px;
+  position: relative;
+  display: flex;
+  max-width: 310px;
+  flex-grow: 1;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  transition: 0.3s border, 0.3s background-color;
+}
+@media (min-width: 697px) {
+  .container .card {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+.container .card:hover {
+  border: #053f38 1px solid;
+  background-color: #fcfff4;
+  cursor: pointer;
+}
+.container .card:hover img {
+  transform: rotate(-2deg);
+}
+.container .card .cardOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.container .card img {
+  height: 100px;
+  border-radius: 100%;
+  margin-left: 15px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+.container .card h2 {
+  color: #053f38;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+@media (min-width: 1024px) {
+  .container .card h2 {
+    margin-top: 0;
+  }
+}
+.container .card p {
+  font-size: 0.7rem;
+}
+.container .card .city {
+  text-transform: capitalize;
+}
+
+footer {
+  font-size: 0.7rem;
+  color: #b7b7b7;
+  text-align: center;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
