@@ -74,7 +74,7 @@ footer {
     text-align: center;
     align-items: center;
     justify-content: flex-start;
-    transition: 0.3s border, 0.3s background-color;
+    transition: 0.3s border, 0.3s background-color, 0.3s box-shadow;
     @include tablet {
       flex-direction: row;
       text-align: left;
@@ -84,6 +84,7 @@ footer {
       border: $brand-color-primary 1px solid;
       background-color: #fcfff4;
       cursor: pointer;
+      box-shadow: 0 0 5px 2px $brand-color-primary;
 
       img {
         transform: rotate(-2deg);
