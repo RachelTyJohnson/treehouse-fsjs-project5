@@ -17,25 +17,40 @@ body {
 main {
   flex-grow: 1;
 
-  input {
-    display: block;
+  form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="text"] {
     text-align: center;
     width: 280px;
-    margin: 0 auto;
-    border-radius: $borderradius;
-    padding: 10px 15px;
-    border: 1px solid $brand-color-mutual;
-    font-size: 1em;
     @include tablet {
       width: 400px;
     }
     @include desktop {
       width: 600px;
     }
+    border-radius: $borderradius 0 0 $borderradius;
+    padding: 10px 15px;
+    border: 1px solid $brand-color-mutual;
+    border-right:none;
+    font-size: 1em;
+
 
     &::placeholder {
       color: lighten($brand-color-mutual, 30%);
     }
+  }
+  input[type="submit"]{
+  padding: 12px 15px;
+  color:white;
+  font-weight:bolder;
+  cursor:pointer;
+  border-radius:0 $borderradius $borderradius 0;
+  border: 0px solid $brand-color-mutual;
+  background-color:$brand-color-primary;
   }
 }
 

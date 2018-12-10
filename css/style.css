@@ -148,28 +148,41 @@ body {
 main {
   flex-grow: 1;
 }
-main input {
-  display: block;
+main form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main input[type=text] {
   text-align: center;
   width: 280px;
-  margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   padding: 10px 15px;
   border: 1px solid #848484;
+  border-right: none;
   font-size: 1em;
 }
 @media (min-width: 697px) {
-  main input {
+  main input[type=text] {
     width: 400px;
   }
 }
 @media (min-width: 1024px) {
-  main input {
+  main input[type=text] {
     width: 600px;
   }
 }
-main input::placeholder {
+main input[type=text]::placeholder {
   color: #d1d1d1;
+}
+main input[type=submit] {
+  padding: 12px 15px;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  border: 0px solid #848484;
+  background-color: #053f38;
 }
 
 h1 {

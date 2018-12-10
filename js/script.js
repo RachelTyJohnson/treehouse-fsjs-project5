@@ -34,6 +34,7 @@ switch(state) {
   }
 }
 
+//function for when/if card is clicked
 container.addEventListener('click', function(e){
   if (e.target.closest(".card")){
     modal.style.display = "block";
@@ -42,6 +43,7 @@ container.addEventListener('click', function(e){
   }
 });
 
+//function for clicking to the next slide
 function nextSlide(e){
   let currentIndex = parseInt(e.target.parentNode.dataset.index);
   nextIndex = currentIndex+1;
@@ -52,6 +54,7 @@ function nextSlide(e){
   }
 }
 
+//function for clicking to the previous slide
 function previousSlide(e){
   let currentIndex = parseInt(e.target.parentNode.dataset.index);
   previousIndex = currentIndex-1;
@@ -62,6 +65,7 @@ function previousSlide(e){
   }
 }
 
+//check which model button is clicked and running the right fuction
 theModal.addEventListener('click',function(e){
   if (e.target.className=="m-next"){
     nextSlide(e);
@@ -71,6 +75,7 @@ theModal.addEventListener('click',function(e){
   }
 });
 
+//function to change modal content depending on which data set we're on
 function changeModalContent(modalIndex){
   $('.modal-box').attr('data-index', modalIndex);
   $('.m-photo').attr('src', employees[modalIndex].photo);
@@ -89,18 +94,17 @@ function changeModalContent(modalIndex){
   $('.m-dob').text(`Birthday: ${bDate}/${bMonth}/${bYear}`);
 }
 
+//close modal window on x or clicking outside
 span.onclick = function() {
   modal.style.display = "none";
 }
-
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-//API STUFF
-
+//taking api data and creating cards for each
 function createCard(i,person){
   let personObject = {
     name: person.name.first + " " + person.name.last,
@@ -125,6 +129,7 @@ function createCard(i,person){
   employees.push(personObject);
 }
 
+//fetchAPI
 fetch('https://randomuser.me/api/?nat=au&results=15')
   .then(function(people) {
     return people.json();
@@ -132,6 +137,7 @@ fetch('https://randomuser.me/api/?nat=au&results=15')
   .then(function(people) {
     $.each(people.results, createCard);
   })
+
 
 //search box
 $("#searchbar").on("keyup", function() {
@@ -144,3 +150,16 @@ $("#searchbar").on("keyup", function() {
     }
   });
 });
+
+//search box using the button
+$('form').on('submit', function(e){
+  e.preventDefault();
+  let value = $('#searchbar').val().toLowerCase();
+  $(".card").filter(function() {
+    if ( $(this).html().toLowerCase().indexOf(value) > -1 ){
+      $(this).show();
+    } else {
+      $(this).hide();
+    }
+  });
+})
